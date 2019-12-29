@@ -29,20 +29,25 @@ module.exports = {
     sidebar: {
       "/": [
         "",
+        "part1.md",
         "ch1.md",
         "ch2.md",
+        "part2.md",
         "ch3.md",
         "ch4.md",
         "ch5.md",
         "ch6.md",
+        "part3.md",
         "ch7.md",
         "ch8.md",
         "ch9.md",
         "ch10.md",
         "ch11.md",
+        "part4.md",
         "ch12.md",
         "ch13.md",
         "ch14.md",
+        "part5.md",
         "ch15.md",
         "ch16.md",
         "ch17.md",
@@ -58,11 +63,13 @@ module.exports = {
         "ch27.md",
         "ch28.md",
         "ch29.md",
+        "part6.md",
         "ch30.md",
         "ch31.md",
         "ch32.md",
         "ch33.md",
-        "ch34.md"
+        "ch34.md",
+        "afterword.md"
       ]
     }
   }

@@ -1,5 +1,7 @@
 # 第 1 章 WHAT IS DESIGN AND ARCHITECTURE?
-Image
+
+![](./un/CH-UN01.jpg)
+
 There has been a lot of confusion about design and architecture over the years. What is design? What is architecture? What are the differences between the two?
 
 One of the goals of this book is to cut through all that confusion and to define, once and for all, what design and architecture are. For starters, I’ll assert that there is no difference between them. None at all.
@@ -24,15 +26,13 @@ As an example, consider the following case study. It includes real data from a r
 
 First, let’s look at the growth of the engineering staff. I’m sure you’ll agree that this trend is very encouraging. Growth like that shown in Figure 1.1 must be an indication of significant success!
 
-Image
-Figure 1.1 Growth of the engineering staff
+<Figures figure="1-1">Growth of the engineering staff</Figures>
 
 Reproduced with permission from a slide presentation by Jason Gorman
 
 Now let’s look at the company’s productivity over the same time period, as measured by simple lines of code (Figure 1.2).
 
-Image
-Figure 1.2 Productivity over the same period of time
+<Figures figure="1-2">Productivity over the same period of time</Figures>
 
 Clearly something is going wrong here. Even though every release is supported by an ever-increasing number of developers, the growth of the code looks like it is approaching an asymptote.
 
@@ -42,16 +42,14 @@ These trends aren’t sustainable. It doesn’t matter how profitable the compan
 
 What caused this remarkable change in productivity? Why was the code 40 times more expensive to produce in release 8 as opposed to release 1?
 
-Image
-Figure 1.3 Cost per line of code over time
+<Figures figure="1-3">Cost per line of code over time</Figures>
 
 THE SIGNATURE OF A MESS
 What you are looking at is the signature of a mess. When systems are thrown together in a hurry, when the sheer number of programmers is the sole driver of output, and when little or no thought is given to the cleanliness of the code or the structure of the design, then you can bank on riding this curve to its ugly end.
 
 Figure 1.4 shows what this curve looks like to the developers. They started out at nearly 100% productivity, but with each release their productivity declined. By the fourth release, it was clear that their productivity was going to bottom out in an asymptotic approach to zero.
 
-Image
-Figure 1.4 Productivity by release
+<Figures figure="1-4">Productivity by release</Figures>
 
 From the developers’ point of view, this is tremendously frustrating, because everyone is working hard. Nobody has decreased their effort.
 
@@ -60,8 +58,7 @@ And yet, despite all their heroics, overtime, and dedication, they simply aren�
 THE EXECUTIVE VIEW
 If you think that’s bad, imagine what this picture looks like to the executives! Consider Figure 1.5, which depicts monthly development payroll for the same period.
 
-Image
-Figure 1.5 Monthly development payroll by release
+<Figures figure="1-5">Monthly development payroll by release</Figures>
 
 Release 1 was delivered with a monthly payroll of a few hundred thousand dollars. The second release cost a few hundred thousand more. By the eighth release monthly payroll was $20 million, and climbing.
 
@@ -94,8 +91,7 @@ The bigger lie that developers buy into is the notion that writing messy code ma
 
 Consider the results of a remarkable experiment performed by Jason Gorman depicted in Figure 1.6. Jason conducted this test over a period of six days. Each day he completed a simple program to convert integers into Roman numerals. He knew his work was complete when his predefined set of acceptance tests passed. Each day the task took a little less than 30 minutes. Jason used a well-known cleanliness discipline named test-driven development (TDD) on the first, third, and fifth days. On the other three days, he wrote the code without that discipline.
 
-Image
-Figure 1.6 Time to completion by iterations and use/non-use of TDD
+<Figures figure="1-6">Time to completion by iterations and use/non-use of TDD</Figures>
 
 First, notice the learning curve apparent in Figure 1.6. Work on the latter days is completed more quickly than the former days. Notice also that work on the TDD days proceeded approximately 10% faster than work on the non-TDD days, and that even the slowest TDD day was faster than the fastest non-TDD day.
 

@@ -1,5 +1,7 @@
 # 第 5 章 OBJECT-ORIENTED PROGRAMMING
-Image
+
+![](./un/CH-UN05.jpg)
+
 As we will see, the basis of a good architecture is the understanding and application of the principles of object-oriented design (OO). But just what is OO?
 
 One answer to this question is “The combination of data and function.” Although often cited, this is a very unsatisfying answer because it implies that o.f() is somehow different from f(o). This is absurd. Programmers were passing data structures into functions long before 1966, when Dahl and Nygaard moved the function call stack frame to the heap and invented OO.

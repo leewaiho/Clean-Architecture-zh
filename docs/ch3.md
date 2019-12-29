@@ -1,5 +1,7 @@
 # 第 3 章 PARADIGM OVERVIEW
-Image
+
+![](./un/CH-UN03.jpg)
+
 The three paradigms included in this overview chapter are structured programming, object-orient programming, and functional programming.
 
 STRUCTURED PROGRAMMING

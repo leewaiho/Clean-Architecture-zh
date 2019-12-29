@@ -1,5 +1,7 @@
 # 第 8 章 OCP: THE OPEN-CLOSED PRINCIPLE
-Image
+
+![](./un/CH-UN08.jpg)
+
 The Open-Closed Principle (OCP) was coined in 1988 by Bertrand Meyer.1 It says:
 
 A software artifact should be open for extension but closed for modification.
