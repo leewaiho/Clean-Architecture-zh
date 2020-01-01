@@ -44,8 +44,7 @@ Consider President Dwight D. Eisenhower’s matrix of importance versus urgency 
 
 I have two kinds of problems, the urgent and the important. The urgent are not important, and the important are never urgent.1
 
-Image
-Figure 2.1 Eisenhower matrix
+<Figures figure="2-1">Eisenhower matrix</Figures>
 
 There is a great deal of truth to this old adage. Those things that are urgent are rarely of great importance, and those things that are important are seldom of great urgency.
 

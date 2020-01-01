@@ -11,16 +11,14 @@ To understand this idea, which is known as the Liskov Substitution Principle (LS
 GUIDING THE USE OF INHERITANCE
 Imagine that we have a class named License, as shown in Figure 9.1. This class has a method named calcFee(), which is called by the Billing application. There are two “subtypes” of License: PersonalLicense and BusinessLicense. They use different algorithms to calculate the license fee.
 
-Image
-Figure 9.1 License, and its derivatives, conform to LSP
+<Figures figure="9-1">License, and its derivatives, conform to LSP</Figures>
 
 This design conforms to the LSP because the behavior of the Billing application does not depend, in any way, on which of the two subtypes it uses. Both of the subtypes are substitutable for the License type.
 
 THE SQUARE/RECTANGLE PROBLEM
 The canonical example of a violation of the LSP is the famed (or infamous, depending on your perspective) square/rectangle problem (Figure 9.2).
 
-Image
-Figure 9.2 The infamous square/rectangle problem
+<Figures figure="9-2">The infamous square/rectangle problem</Figures>
 
 In this example, Square is not a proper subtype of Rectangle because the height and width of the Rectangle are independently mutable; in contrast, the height and width of the Square must change together. Since the User believes it is communicating with a Rectangle, it could easily get confused. The following code shows why:
 

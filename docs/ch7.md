@@ -29,8 +29,7 @@ Perhaps the best way to understand this principle is by looking at the symptoms 
 SYMPTOM 1: ACCIDENTAL DUPLICATION
 My favorite example is the Employee class from a payroll application. It has three methods: calculatePay(), reportHours(), and save() (Figure 7.1).
 
-Image
-Figure 7.1 The Employee class
+<Figures figure="7-1">The Employee class</Figures>
 
 This class violates the SRP because those three methods are responsible to three very different actors.
 
@@ -44,8 +43,7 @@ By putting the source code for these three methods into a single Employee class,
 
 For example, suppose that the calculatePay() function and the reportHours() function share a common algorithm for calculating non-overtime hours. Suppose also that the developers, who are careful not to duplicate code, put that algorithm into a function named regularHours() (Figure 7.2).
 
-Image
-Figure 7.2 Shared algorithm
+<Figures figure="7-2">Shared algorithm</Figures>
 
 Now suppose that the CFO’s team decides that the way non-overtime hours are calculated needs to be tweaked. In contrast, the COO’s team in HR does not want that particular tweak because they use non-overtime hours for a different purpose.
 
@@ -77,20 +75,17 @@ There are many different solutions to this problem. Each moves the functions int
 
 Perhaps the most obvious way to solve the problem is to separate the data from the functions. The three classes share access to EmployeeData, which is a simple data structure with no methods (Figure 7.3). Each class holds only the source code necessary for its particular function. The three classes are not allowed to know about each other. Thus any accidental duplication is avoided.
 
-Image
-Figure 7.3 The three classes do not know about each other
+<Figures figure="7-3">The three classes do not know about each other</Figures> 7.3 
 
 The downside of this solution is that the developers now have three classes that they have to instantiate and track. A common solution to this dilemma is to use the Facade pattern (Figure 7.4).
 
-Image
-Figure 7.4 The Facade pattern
+<Figures figure="7-4">The Facade pattern</Figures>
 
 The EmployeeFacade contains very little code. It is responsible for instantiating and delegating to the classes with the functions.
 
 Some developers prefer to keep the most important business rules closer to the data. This can be done by keeping the most important method in the original Employee class and then using that class as a Facade for the lesser functions (Figure 7.5).
 
-Image
-Figure 7.5 The most important method is kept in the original Employee class and used as a Facade for the lesser functions
+<Figures figure="7-5">The most important method is kept in the original Employee class and used as a Facade for the lesser functions</Figures>
 
 You might object to these solutions on the basis that every class would contain just one function. This is hardly the case. The number of functions required to calculate pay, generate a report, or save the data is likely to be large in each case. Each of those classes would have many private methods in them.
 

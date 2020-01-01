@@ -69,8 +69,7 @@ Let’s look at some of those compromises.
 SEGREGATION OF MUTABILITY
 One of the most common compromises in regard to immutability is to segregate the application, or the services within the application, into mutable and immutable components. The immutable components perform their tasks in a purely functional way, without using any mutable variables. The immutable components communicate with one or more other components that are not purely functional, and allow for the state of variables to be mutated (Figure 6.1).
 
-Image
-Figure 6.1 Mutating state and transactional memory
+<Figures figure="6-1">Mutating state and transactional memory</Figures>
 
 Since mutating state exposes those components to all the problems of concurrency, it is common practice to use some kind of transactional memory to protect the mutable variables from concurrent updates and race conditions.
 

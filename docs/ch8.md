@@ -27,8 +27,7 @@ How? By properly separating the things that change for different reasons (the Si
 
 By applying the SRP, we might come up with the data-flow view shown in Figure 8.1. Some analysis procedure inspects the financial data and produces reportable data, which is then formatted appropriately by the two reporter processes.
 
-Image
-Figure 8.1 Applying the SRP
+<Figures figure="8-1">Applying the SRP</Figures>
 
 The essential insight here is that generating the report involves two separate responsibilities: the calculation of the reported data, and the presentation of that data into a web- and printer-friendly form.
 
@@ -36,8 +35,7 @@ Having made this separation, we need to organize the source code dependencies to
 
 We accomplish this by partitioning the processes into classes, and separating those classes into components, as shown by the double lines in the diagram in Figure 8.2. In this figure, the component at the upper left is the Controller. At the upper right, we have the Interactor. At the lower right, there is the Database. Finally, at the lower left, there are four components that represent the Presenters and the Views.
 
-Image
-Figure 8.2 Partitioning the processes into classes and separating the classes into components
+<Figures figure="8-2">Partitioning the processes into classes and separating the classes into components</Figures>
 
 Classes marked with `<I>` are interfaces; those marked with `<DS>` are data structures. Open arrowheads are using relationships. Closed arrowheads are implements or inheritance relationships.
 
@@ -45,8 +43,7 @@ The first thing to notice is that all the dependencies are source code dependenc
 
 The next thing to notice is that each double line is crossed in one direction only. This means that all component relationships are unidirectional, as shown in the component graph in Figure 8.3. These arrows point toward the components that we want to protect from change.
 
-Image
-Figure 8.3 The component relationships are unidirectional
+<Figures figure="8-3">The component relationships are unidirectional</Figures>
 
 Let me say that again: If component A should be protected from changes in component B, then component B should depend on component A.
 
