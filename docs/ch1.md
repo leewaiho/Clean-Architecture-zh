@@ -71,11 +71,9 @@ But which action can be taken? What has gone wrong? What has caused this incredi
 WHAT WENT WRONG?
 Nearly 2600 years ago, Aesop told the story of the Tortoise and the Hare. The moral of that story has been stated many times in many different ways:
 
-• “Slow and steady wins the race.”
-
-• “The race is not to the swift, nor the battle to the strong.”
-
-• “The more haste, the less speed.”
+- “Slow and steady wins the race.”
+- “The race is not to the swift, nor the battle to the strong.”
+- “The more haste, the less speed.”
 
 The story itself illustrates the foolishness of overconfidence. The Hare, so confident in its intrinsic speed, does not take the race seriously, and so naps while the Tortoise crosses the finish line.
 

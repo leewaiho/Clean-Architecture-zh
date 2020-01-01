@@ -39,13 +39,13 @@ The expression (fn [x] (* x x)) is an anonymous function that calls the multiply
 
 Looking at the whole thing again, it’s best to start with the innermost function call.
 
-• The range function returns a never-ending list of integers starting with 0.
+- The range function returns a never-ending list of integers starting with 0.
 
-• This list is passed into the map function, which calls the anonymous squaring function on each element, producing a new never-ending list of all the squares.
+- This list is passed into the map function, which calls the anonymous squaring function on each element, producing a new never-ending list of all the squares.
 
-• The list of squares is passed into the take function, which returns a new list with only the first 25 elements.
+- The list of squares is passed into the take function, which returns a new list with only the first 25 elements.
 
-• The println function prints its input, which is a list of the first 25 squares of integers.
+- The println function prints its input, which is a list of the first 25 squares of integers.
 
 If you find yourself terrified by the concept of never-ending lists, don’t worry. Only the first 25 elements of those never-ending lists are actually created. That’s because no element of a never-ending list is evaluated until it is accessed.
 
@@ -120,11 +120,9 @@ If this still sounds absurd, it might help if you remembered that this is precis
 CONCLUSION
 To summarize:
 
-• Structured programming is discipline imposed upon direct transfer of control.
-
-• Object-oriented programming is discipline imposed upon indirect transfer of control.
-
-• Functional programming is discipline imposed upon variable assignment.
+- Structured programming is discipline imposed upon direct transfer of control.
+- Object-oriented programming is discipline imposed upon indirect transfer of control.
+- Functional programming is discipline imposed upon variable assignment.
 
 Each of these three paradigms has taken something away from us. Each restricts some aspect of the way we write code. None of them has added to our power or our capabilities.
 

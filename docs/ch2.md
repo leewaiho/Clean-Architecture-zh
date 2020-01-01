@@ -31,9 +31,8 @@ Function or architecture? Which of these two provides the greater value? Is it m
 
 If you ask the business managers, they’ll often say that it’s more important for the software system to work. Developers, in turn, often go along with this attitude. But it’s the wrong attitude. I can prove that it is wrong with the simple logical tool of examining the extremes.
 
-• If you give me a program that works perfectly but is impossible to change, then it won’t work when the requirements change, and I won’t be able to make it work. Therefore the program will become useless.
-
-• If you give me a program that does not work but is easy to change, then I can make it work, and keep it working as requirements change. Therefore the program will remain continually useful.
+- If you give me a program that works perfectly but is impossible to change, then it won’t work when the requirements change, and I won’t be able to make it work. Therefore the program will become useless.
+- If you give me a program that does not work but is easy to change, then I can make it work, and keep it working as requirements change. Therefore the program will remain continually useful.
 
 You may not find this argument convincing. After all, there’s no such thing as a program that is impossible to change. However, there are systems that are practically impossible to change, because the cost of change exceeds the benefit of change. Many systems reach that point in some of their features or configurations.
 
@@ -55,11 +54,8 @@ The second value of software—architecture—is important but never particularl
 Of course, some things are both urgent and important. Other things are not urgent and not important. Ultimately, we can arrange these four couplets into priorities:
 
 1. Urgent and important
-
 2. Not urgent and important
-
 3. Urgent and not important
-
 4. Not urgent and not important
 
 Note that the architecture of the code—the important stuff—is in the top two positions of this list, whereas the behavior of the code occupies the first and third positions.
