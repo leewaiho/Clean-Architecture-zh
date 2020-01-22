@@ -1,6 +1,5 @@
-第 13章
-组件聚合
-M W M M B M M M B M lB M B nB nanSaB IB anB H M IR aH nM IH B H B H R M H H M M B H lM B B nfllB M M H B M M PW IIIB IB B B B n架构整洁之道
+第 13章 组件聚合
+
 那么，究竟是哪些类应该被组合成一个组件呢？这是 个W常重要的设计決乗 
 应该遵循优鸯的软件工程经齡來行事。但不幸的是，很多年以来，我们对于这么1 
 要的决策经常是根据当卜而临的实际情况临时拍脑门决定的。 、
