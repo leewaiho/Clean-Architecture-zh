@@ -1,6 +1,4 @@
-# 第三部分 设计原则
-
-> DESIGN PRINCIPLES
+# Part3. DESIGN PRINCIPLES
 
 ![](./un/PA-UN03.jpg)
 

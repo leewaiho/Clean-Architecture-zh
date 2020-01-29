@@ -1,4 +1,4 @@
-# 第 1 章 WHAT IS DESIGN AND ARCHITECTURE?
+# Chap1. WHAT IS DESIGN AND ARCHITECTURE?
 
 ![](./un/CH-UN01.jpg)
 
@@ -14,14 +14,16 @@ In short, I see all the little details that support all the high-level decisions
 
 And so it is with software design. The low-level details and the high-level structure are all part of the same whole. They form a continuous fabric that defines the shape of the system. You can’t have one without the other; indeed, no clear dividing line separates them. There is simply a continuum of decisions from the highest to the lowest levels.
 
-THE GOAL?
+## THE GOAL?
+
 And the goal of those decisions? The goal of good software design? That goal is nothing less than my utopian description:
 
 The goal of software architecture is to minimize the human resources required to build and maintain the required system.
 
 The measure of design quality is simply the measure of the effort required to meet the needs of the customer. If that effort is low, and stays low throughout the lifetime of the system, the design is good. If that effort grows with each new release, the design is bad. It’s as simple as that.
 
-CASE STUDY
+## CASE STUDY
+
 As an example, consider the following case study. It includes real data from a real company that wishes to remain anonymous.
 
 First, let’s look at the growth of the engineering staff. I’m sure you’ll agree that this trend is very encouraging. Growth like that shown in Figure 1.1 must be an indication of significant success!
@@ -44,7 +46,8 @@ What caused this remarkable change in productivity? Why was the code 40 times mo
 
 <Figures figure="1-3">Cost per line of code over time</Figures>
 
-THE SIGNATURE OF A MESS
+### THE SIGNATURE OF A MESS
+
 What you are looking at is the signature of a mess. When systems are thrown together in a hurry, when the sheer number of programmers is the sole driver of output, and when little or no thought is given to the cleanliness of the code or the structure of the design, then you can bank on riding this curve to its ugly end.
 
 Figure 1.4 shows what this curve looks like to the developers. They started out at nearly 100% productivity, but with each release their productivity declined. By the fourth release, it was clear that their productivity was going to bottom out in an asymptotic approach to zero.
@@ -55,20 +58,22 @@ From the developers’ point of view, this is tremendously frustrating, because 
 
 And yet, despite all their heroics, overtime, and dedication, they simply aren’t getting much of anything done anymore. All their effort has been diverted away from features and is now consumed with managing the mess. Their job, such as it is, has changed into moving the mess from one place to the next, and the next, and the next, so that they can add one more meager little feature.
 
-THE EXECUTIVE VIEW
+### THE EXECUTIVE VIEW
+
 If you think that’s bad, imagine what this picture looks like to the executives! Consider Figure 1.5, which depicts monthly development payroll for the same period.
 
 <Figures figure="1-5">Monthly development payroll by release</Figures>
 
-Release 1 was delivered with a monthly payroll of a few hundred thousand dollars. The second release cost a few hundred thousand more. By the eighth release monthly payroll was $20 million, and climbing.
+Release 1 was delivered with a monthly payroll of a few hundred thousand dollars. The second release cost a few hundred thousand more. By the eighth release monthly payroll was `$20` million, and climbing.
 
 Just this chart alone is scary. Clearly something startling is happening. One hopes that revenues are outpacing costs and therefore justifying the expense. But no matter how you look at this curve, it’s cause for concern.
 
-But now compare the curve in Figure 1.5 with the lines of code written per release in Figure 1.2. That initial few hundred thousand dollars per month bought a lot of functionality—but the final $20 million bought almost nothing! Any CFO would look at these two graphs and know that immediate action is necessary to stave off disaster.
+But now compare the curve in Figure 1.5 with the lines of code written per release in Figure 1.2. That initial few hundred thousand dollars per month bought a lot of functionality—but the final `$20` million bought almost nothing! Any CFO would look at these two graphs and know that immediate action is necessary to stave off disaster.
 
 But which action can be taken? What has gone wrong? What has caused this incredible decline in productivity? What can executives do, other than to stamp their feet and rage at the developers?
 
-WHAT WENT WRONG?
+### WHAT WENT WRONG?
+
 Nearly 2600 years ago, Aesop told the story of the Tortoise and the Hare. The moral of that story has been stated many times in many different ways:
 
 - “Slow and steady wins the race.”
@@ -103,7 +108,8 @@ The developers may think that the answer is to start over from scratch and redes
 
 Their overconfidence will drive the redesign into the same mess as the original project.
 
-CONCLUSION
+## CONCLUSION
+
 In every case, the best option is for the development organization to recognize and avoid its own overconfidence and to start taking the quality of its software architecture seriously.
 
 To take software architecture seriously, you need to know what good software architecture is. To build a system with a design and an architecture that minimize effort and maximize productivity, you need to know which attributes of system architecture lead to that end.

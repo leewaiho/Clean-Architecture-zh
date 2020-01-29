@@ -1,50 +1,54 @@
-# 第 6 章 FUNCTIONAL PROGRAMMING
+# Chap6. FUNCTIONAL PROGRAMMING
 
 ![](./un/CH-UN06.jpg)
 
 In many ways, the concepts of functional programming predate programming itself. This paradigm is strongly based on the l-calculus invented by Alonzo Church in the 1930s.
 
-SQUARES OF INTEGERS
+## SQUARES OF INTEGERS
+
 To explain what functional programming is, it’s best to examine some examples. Let’s investigate a simple problem: printing the squares of the first 25 integers.
 
 In a language like Java, we might write the following:
 
 Click here to view code image
 
+```java
 public class Squint {
   public static void main(String args[]) {
     for (int i=0; i<25; i++)
       System.out.println(i*i);
   }
 }
+```
 
 In a language like Clojure, which is a derivative of Lisp, and is functional, we might implement this same program as follows:
 
 Click here to view code image
 
+```lisp
 (println (take 25 (map (fn [x] (* x x)) (range))))
+```
 
 If you don’t know Lisp, then this might look a little strange. So let me reformat it a bit and add some comments.
 
 Click here to view code image
 
+```lisp
 (println ;___________________ Print
   (take 25 ;_________________ the first 25
     (map (fn [x] (* x x)) ;__ squares
       (range)))) ;___________ of Integers
+```
 
 It should be clear that println, take, map, and range are all functions. In Lisp, you call a function by putting it in parentheses. For example, (range) calls the range function.
 
-The expression (fn [x] (* x x)) is an anonymous function that calls the multiply function, passing its input argument in twice. In other words, it computes the square of its input.
+The expression `(fn [x] (* x x))` is an anonymous function that calls the multiply function, passing its input argument in twice. In other words, it computes the square of its input.
 
 Looking at the whole thing again, it’s best to start with the innermost function call.
 
 - The range function returns a never-ending list of integers starting with 0.
-
 - This list is passed into the map function, which calls the anonymous squaring function on each element, producing a new never-ending list of all the squares.
-
 - The list of squares is passed into the take function, which returns a new list with only the first 25 elements.
-
 - The println function prints its input, which is a list of the first 25 squares of integers.
 
 If you find yourself terrified by the concept of never-ending lists, don’t worry. Only the first 25 elements of those never-ending lists are actually created. That’s because no element of a never-ending list is evaluated until it is accessed.
@@ -55,7 +59,8 @@ Instead, my goal here is to point out something very dramatic about the differen
 
 This leads us to a surprising statement: Variables in functional languages do not vary.
 
-IMMUTABILITY AND ARCHITECTURE
+## IMMUTABILITY AND ARCHITECTURE
+
 Why is this point important as an architectural consideration? Why would an architect be concerned with the mutability of variables? The answer is absurdly simple: All race conditions, deadlock conditions, and concurrent update problems are due to mutable variables. You cannot have a race condition or a concurrent update problem if no variable is ever updated. You cannot have deadlocks without mutable locks.
 
 In other words, all the problems that we face in concurrent applications—all the problems we face in applications that require multiple threads, and multiple processors—cannot happen if there are no mutable variables.
@@ -66,7 +71,8 @@ The answer to that question is affirmative, if you have infinite storage and inf
 
 Let’s look at some of those compromises.
 
-SEGREGATION OF MUTABILITY
+## SEGREGATION OF MUTABILITY
+
 One of the most common compromises in regard to immutability is to segregate the application, or the services within the application, into mutable and immutable components. The immutable components perform their tasks in a purely functional way, without using any mutable variables. The immutable components communicate with one or more other components that are not purely functional, and allow for the state of variables to be mutated (Figure 6.1).
 
 <Figures figure="6-1">Mutating state and transactional memory</Figures>
@@ -79,8 +85,10 @@ A simple example of this approach is Clojure’s atom facility:
 
 Click here to view code image
 
+```clojure
 (def counter (atom 0)) ; initialize counter to 0
 (swap! counter inc)    ; safely increment counter.
+```
 
 In this code, the counter variable is defined as an atom. In Clojure, an atom is a special kind of variable whose value is allowed to mutate under very disciplined conditions that are enforced by the swap! function.
 
@@ -94,7 +102,8 @@ The point is that well-structured applications will be segregated into those com
 
 Architects would be wise to push as much processing as possible into the immutable components, and to drive as much code as possible out of those components that must allow mutation.
 
-EVENT SOURCING
+## EVENT SOURCING
+
 The limits of storage and processing power have been rapidly receding from view. Nowadays it is common for processors to execute billions of instructions per second and to have billions of bytes of RAM. The more memory we have, and the faster our machines are, the less we need mutable state.
 
 As a simple example, imagine a banking application that maintains the account balances of its customers. It mutates those balances when deposit and withdrawal transactions are executed.
@@ -117,7 +126,8 @@ If we have enough storage and enough processor power, we can make our applicatio
 
 If this still sounds absurd, it might help if you remembered that this is precisely the way your source code control system works.
 
-CONCLUSION
+## CONCLUSION
+
 To summarize:
 
 - Structured programming is discipline imposed upon direct transfer of control.

@@ -1,4 +1,4 @@
-# 第 9 章 LSP: THE LISKOV SUBSTITUTION PRINCIPLE
+# Chap9. LSP: THE LISKOV SUBSTITUTION PRINCIPLE
 
 ![](./un/CH-UN09.jpg)
 
@@ -8,14 +8,16 @@ What is wanted here is something like the following substitution property: If fo
 
 To understand this idea, which is known as the Liskov Substitution Principle (LSP), let’s look at some examples.
 
-GUIDING THE USE OF INHERITANCE
+## GUIDING THE USE OF INHERITANCE
+
 Imagine that we have a class named License, as shown in Figure 9.1. This class has a method named calcFee(), which is called by the Billing application. There are two “subtypes” of License: PersonalLicense and BusinessLicense. They use different algorithms to calculate the license fee.
 
 <Figures figure="9-1">License, and its derivatives, conform to LSP</Figures>
 
 This design conforms to the LSP because the behavior of the Billing application does not depend, in any way, on which of the two subtypes it uses. Both of the subtypes are substitutable for the License type.
 
-THE SQUARE/RECTANGLE PROBLEM
+## THE SQUARE/RECTANGLE PROBLEM
+
 The canonical example of a violation of the LSP is the famed (or infamous, depending on your perspective) square/rectangle problem (Figure 9.2).
 
 <Figures figure="9-2">The infamous square/rectangle problem</Figures>
@@ -24,19 +26,19 @@ In this example, Square is not a proper subtype of Rectangle because the height 
 
 Click here to view code image
 
+```java
 Rectangle r = …
-
 r.setW(5);
-
 r.setH(2);
-
 assert(r.area() == 10);
+```
 
 If the … code produced a Square, then the assertion would fail.
 
 The only way to defend against this kind of LSP violation is to add mechanisms to the User (such as an if statement) that detects whether the Rectangle is, in fact, a Square. Since the behavior of the User depends on the types it uses, those types are not substitutable.
 
-LSP AND ARCHITECTURE
+## LSP AND ARCHITECTURE
+
 In the early years of the object-oriented revolution, we thought of the LSP as a way to guide the use of inheritance, as shown in the previous sections. However, over the years the LSP has morphed into a broader principle of software design that pertains to interfaces and implementations.
 
 The interfaces in question can be of many forms. We might have a Java-style interface, implemented by several classes. Or we might have several Ruby classes that share the same method signatures. Or we might have a set of services that all respond to the same REST interface.
@@ -45,7 +47,8 @@ In all of these situations, and more, the LSP is applicable because there are us
 
 The best way to understand the LSP from an architectural viewpoint is to look at what happens to the architecture of a system when the principle is violated.
 
-EXAMPLE LSP VIOLATION
+## EXAMPLE LSP VIOLATION
+
 Assume that we are building an aggregator for many taxi dispatch services. Customers use our website to find the most appropriate taxi to use, regardless of taxi company. Once the customer makes a decision, our system dispatches the chosen taxi by using a restful service.
 
 Now assume that the URI for the restful dispatch service is part of the information contained in the driver database. Once our system has chosen a driver appropriate for the customer, it gets that URI from the driver record and then uses it to dispatch the driver.
@@ -54,16 +57,20 @@ Suppose Driver Bob has a dispatch URI that looks like this:
 
 Click here to view code image
 
+```
 purplecab.com/driver/Bob
+```
 
 Our system will append the dispatch information onto this URI and send it with a PUT, as follows:
 
 Click here to view code image
 
+```
 purplecab.com/driver/Bob
        /pickupAddress/24 Maple St.
        /pickupTime/153
        /destination/ORD
+```
 
 Clearly, this means that all the dispatch services, for all the different companies, must conform to the same REST interface. They must treat the pickupAddress, pickupTime, and destination fields identically.
 
@@ -75,7 +82,9 @@ The simplest way to accomplish this goal would be to add an if statement to the 
 
 Click here to view code image
 
+```java
 if (driver.getDispatchUri().startsWith("acme.com"))…
+```
 
 But, of course, no architect worth his or her salt would allow such a construction to exist in the system. Putting the word “acme” into the code itself creates an opportunity for all kinds of horrible and mysterious errors, not to mention security breaches.
 
@@ -85,19 +94,13 @@ Our architect would have to insulate the system from bugs like this by creating 
 
 Click here to view code image
 
-URI
-
-Dispatch Format
-
-Acme.com    
-
-/pickupAddress/%s/pickupTime/%s/dest/%s
-
-*.*    
-
-/pickupAddress/%s/pickupTime/%s/destination/%s
+| URI      | Dispatch Format                                |
+| -------- | ---------------------------------------------- |
+| Acme.com | /pickupAddress/%s/pickupTime/%s/dest/%s        |
+| `*.*`    | /pickupAddress/%s/pickupTime/%s/destination/%s |
 
 And so our architect has had to add a significant and complex mechanism to deal with the fact that the interfaces of the restful services are not all substitutable.
 
-CONCLUSION
+## CONCLUSION
+
 The LSP can, and should, be extended to the level of architecture. A simple violation of substitutability, can cause a system’s architecture to be polluted with a significant amount of extra mechanisms.

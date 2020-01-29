@@ -1,5 +1,4 @@
-# 后序
-> AFTERWORD
+# AFTERWORD
 
 My professional career as a software developer began in the 1990s, at a time when the dinosaurs of Big Architecture ruled the world. To get ahead, you had to learn about objects and components, about design patterns, and about the Unified Modeling Language (and its precursors).
 

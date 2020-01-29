@@ -1,6 +1,4 @@
-# 第二部分 从基础构件开始：编程范式
-
-> STARTING WITH THE BRICKS: PROGRAMMING PARADIGMS
+# Part2. STARTING WITH THE BRICKS: PROGRAMMING PARADIGMS
 
 Software architecture begins with the code—and so we will begin our discussion of architecture by looking at what we’ve learned about code since code was first written.
 

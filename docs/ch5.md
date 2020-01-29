@@ -1,4 +1,4 @@
-# 第 5 章 OBJECT-ORIENTED PROGRAMMING
+# Chap5. OBJECT-ORIENTED PROGRAMMING
 
 ![](./un/CH-UN05.jpg)
 
@@ -12,7 +12,8 @@ Some folks fall back on three magic words to explain the nature of OO: encapsula
 
 Let’s examine each of these concepts in turn.
 
-ENCAPSULATION?
+## ENCAPSULATION?
+
 The reason encapsulation is cited as part of the definition of OO is that OO languages provide easy and effective encapsulation of data and function. As a result, a line can be drawn around a cohesive set of data and functions. Outside of that line, the data is hidden and only some of the functions are known. We see this concept in action as the private data members and the public member functions of a class.
 
 This idea is certainly not unique to OO. Indeed, we had perfect encapsulation in C. Consider this simple C program:
@@ -21,55 +22,38 @@ Click here to view code image
 
 point.h
 
+```c
 struct Point;
-
 struct Point* makePoint(double x, double y);
-
 double distance (struct Point *p1, struct Point *p2);
+```
 
 Click here to view code image
 
 point.c
 
+```c
 #include "point.h"
-
 #include <stdlib.h>
-
 #include <math.h>
 
- 
-
 struct Point {
-
   double x,y;
-
 };
 
- 
-
 struct Point* makepoint(double x, double y) {
-
   struct Point* p = malloc(sizeof(struct Point));
-
   p->x = x;
-
   p->y = y;
-
   return p;
-
 }
-
- 
 
 double distance(struct Point* p1, struct Point* p2) {
-
   double dx = p1->x - p2->x;
-
   double dy = p1->y - p2->y;
-
   return sqrt(dx*dx+dy*dy);
-
 }
+```
 
 The users of point.h have no access whatsoever to the members of struct Point. They can call the makePoint() function, and the distance() function, but they have absolutely no knowledge of the implementation of either the Point data structure or the functions.
 
@@ -83,52 +67,36 @@ Click here to view code image
 
 point.h
 
+```cpp
 class Point {
-
 public:
-
   Point(double x, double y);
-
   double distance(const Point& p) const;
 
- 
-
 private:
-
   double x;
-
   double y;
-
 };
+```
 
 Click here to view code image
 
 point.cc
 
+```cpp
 #include "point.h"
-
 #include <math.h>
 
- 
-
 Point::Point(double x, double y)
-
 : x(x), y(y)
-
 {}
 
-
-
-
 double Point::distance(const Point& p) const {
-
   double dx = x-p.x;
-
   double dy = y-p.y;
-
   return sqrt(dx*dx + dy*dy);
-
 }
+```
 
 Clients of the header file point.h know about the member variables x and y! The compiler will prevent access to them, but the client still knows they exist. For example, if those member names are changed, the point.cc file must be recompiled! Encapsulation has been broken.
 
@@ -140,7 +108,8 @@ For these reasons, it is difficult to accept that OO depends on strong encapsula
 
 OO certainly does depend on the idea that programmers are well-behaved enough to not circumvent encapsulated data. Even so, the languages that claim to provide OO have only weakened the once perfect encapsulation we enjoyed with C.
 
-INHERITANCE?
+## INHERITANCE?
+
 If OO languages did not give us better encapsulation, then they certainly gave us inheritance.
 
 Well—sort of. Inheritance is simply the redeclaration of a group of variables and functions within an enclosing scope. This is something C programmers3 were able to do manually long before there was an OO language.
@@ -151,93 +120,62 @@ Click here to view code image
 
 namedPoint.h
 
+```c
 struct NamedPoint;
 
- 
-
 struct NamedPoint* makeNamedPoint(double x, double y, char* name);
-
 void setName(struct NamedPoint* np, char* name);
-
 char* getName(struct NamedPoint* np);
+```
 
 Click here to view code image
 
 namedPoint.c
 
+```c
 #include "namedPoint.h"
-
 #include <stdlib.h>
 
- 
-
 struct NamedPoint {
-
   double x,y;
-
   char* name;
-
 };
 
- 
-
 struct NamedPoint* makeNamedPoint(double x, double y, char* name) {
-
   struct NamedPoint* p = malloc(sizeof(struct NamedPoint));
-
   p->x = x;
-
   p->y = y;
-
   p->name = name;
-
   return p;
-
 }
-
- 
 
 void setName(struct NamedPoint* np, char* name) {
-
   np->name = name;
-
 }
-
- 
 
 char* getName(struct NamedPoint* np) {
-
   return np->name;
-
 }
+```
 
 Click here to view code image
 
 main.c
 
+```c
 #include "point.h"
-
 #include "namedPoint.h"
-
 #include <stdio.h>
 
- 
-
 int main(int ac, char** av) {
-
   struct NamedPoint* origin = makeNamedPoint(0.0, 0.0, "origin");
-
   struct NamedPoint* upperRight = makeNamedPoint  (1.0, 1.0, "upperRight");
-
   printf("distance=%f\n",
-
     distance(
-
-             (struct Point*) origin, 
-
+             (struct Point*) origin,
              (struct Point*) upperRight));
-
 }
+```
 
 If you look carefully at the main program, you’ll see that the NamedPoint data structure acts as though it is a derivative of the Point data structure. This is because the order of the first two fields in NamedPoint is the same as Point. In short, NamedPoint can masquerade as Point because NamedPoint is a pure superset of Point and maintains the ordering of the members that correspond to Point.
 
@@ -253,11 +191,13 @@ To recap: We can award no point to OO for encapsulation, and perhaps a half-poin
 
 But there’s one more attribute to consider.
 
-POLYMORPHISM?
+## POLYMORPHISM?
+
 Did we have polymorphic behavior before OO languages? Of course we did. Consider this simple C copy program.
 
 Click here to view code image
 
+```c
 #include <stdio.h>
 
 void copy() {
@@ -265,6 +205,7 @@ void copy() {
   while ((c=getchar()) != EOF)
     putchar(c);
 }
+```
 
 The function getchar() reads from STDIN. But which device is STDIN? The putchar() function writes to STDOUT. But which device is that? These functions are polymorphic—their behavior depends on the type of STDIN and STDOUT.
 
@@ -276,6 +217,7 @@ The FILE data structure contains five pointers to functions. In our example, it 
 
 Click here to view code image
 
+```c
 struct FILE {
   void (*open)(char* name, int mode);
   void (*close)();
@@ -283,30 +225,35 @@ struct FILE {
   void (*write)(char);
   void (*seek)(long index, int mode);
 };
+```
 
 The IO driver for the console will define those functions and load up a FILE data structure with their addresses—something like this:
 
 Click here to view code image
 
+```c
 #include "file.h"
- 
+
 void open(char* name, int mode) {/*...*/}
 void close() {/*...*/};
 int read() {int c;/*...*/ return c;}
 void write(char c) {/*...*/}
 void seek(long index, int mode) {/*...*/}
- 
-struct FILE console = {open, close, read, write, seek};
 
-Now if STDIN is defined as a FILE*, and if it points to the console data structure, then getchar() might be implemented this way:
+struct FILE console = {open, close, read, write, seek};
+```
+
+Now if STDIN is defined as a `FILE*`, and if it points to the console data structure, then getchar() might be implemented this way:
 
 Click here to view code image
 
+```c
 extern struct FILE* STDIN;
- 
+
 int getchar() {
   return STDIN->read();
 }
+```
 
 In other words, getchar() simply calls the function pointed to by the read pointer of the FILE data structure pointed to by STDIN.
 
@@ -320,7 +267,8 @@ The problem with explicitly using pointers to functions to create polymorphic be
 
 OO languages eliminate these conventions and, therefore, these dangers. Using an OO language makes polymorphism trivial. That fact provides an enormous power that old C programmers could only dream of. On this basis, we can conclude that OO imposes discipline on indirect transfer of control.
 
-THE POWER OF POLYMORPHISM
+### THE POWER OF POLYMORPHISM
+
 What’s so great about polymorphism? To better appreciate its charms, let’s reconsider the example copy program. What happens to that program if a new IO device is created? Suppose we want to use the copy program to copy data from a handwriting recognition device to a speech synthesizer device: How do we need to change the copy program to get it to work with those new devices?
 
 We don’t need any changes at all! Indeed, we don’t even need to recompile the copy program. Why? Because the source code of the copy program does not depend on the source code of the IO drivers. As long as those IO drivers implement the five standard functions defined by FILE, the copy program will be happy to use them.
@@ -335,7 +283,8 @@ The plugin architecture was invented to support this kind of IO device independe
 
 OO allows the plugin architecture to be used anywhere, for anything.
 
-DEPENDENCY INVERSION
+### DEPENDENCY INVERSION
+
 Imagine what software was like before a safe and convenient mechanism for polymorphism was available. In the typical calling tree, main functions called high-level functions, which called mid-level functions, which called low-level functions. In that calling tree, however, source code dependencies inexorably followed the flow of control (Figure 5.1).
 
 Image
@@ -377,5 +326,6 @@ In short, when the source code in a component changes, only that component needs
 
 If the modules in your system can be deployed independently, then they can be developed independently by different teams. That’s independent developability.
 
-CONCLUSION
+## CONCLUSION
+
 What is OO? There are many opinions and many answers to this question. To the software architect, however, the answer is clear: OO is the ability, through the use of polymorphism, to gain absolute control over every source code dependency in the system. It allows the architect to create a plugin architecture, in which modules that contain high-level policies are independent of modules that contain low-level details. The low-level details are relegated to plugin modules that can be deployed and developed independently from the modules that contain high-level policies.

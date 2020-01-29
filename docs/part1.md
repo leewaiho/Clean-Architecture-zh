@@ -1,6 +1,4 @@
-# 第一部分 概述
-
-> INTRODUCTION
+# Part1. INTRODUCTION
 
 It doesn’t take a huge amount of knowledge and skill to get a program working. Kids in high school do it all the time. Young men and women in college start billion-dollar businesses based on scrabbling together a few lines of PHP or Ruby. Hoards of junior programmers in cube farms around the world slog through massive requirements documents held in huge issue tracking systems to get their systems to “work” by the sheer brute force of will. The code they produce may not be pretty; but it works. It works because getting something to work—once—just isn’t that hard.
 
