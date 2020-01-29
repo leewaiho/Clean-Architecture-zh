@@ -1,4 +1,4 @@
-# 第 7 章 SRP: THE SINGLE RESPONSIBILITY PRINCIPLE
+# Chap7. SRP: THE SINGLE RESPONSIBILITY PRINCIPLE
 
 ![](./un/CH-UN07.jpg)
 
@@ -26,7 +26,7 @@ That word “cohesive” implies the SRP. Cohesion is the force that binds toget
 
 Perhaps the best way to understand this principle is by looking at the symptoms of violating it.
 
-SYMPTOM 1: ACCIDENTAL DUPLICATION
+## SYMPTOM 1: ACCIDENTAL DUPLICATION
 My favorite example is the Employee class from a payroll application. It has three methods: calculatePay(), reportHours(), and save() (Figure 7.1).
 
 <Figures figure="7-1">The Employee class</Figures>
@@ -53,7 +53,7 @@ Of course, the COO’s team doesn’t know that this is happening. The HR person
 
 We’ve all seen things like this happen. These problems occur because we put code that different actors depend on into close proximity. The SRP says to separate the code that different actors depend on.
 
-SYMPTOM 2: MERGES
+## SYMPTOM 2: MERGES
 It’s not hard to imagine that merges will be common in source files that contain many different methods. This situation is especially likely if those methods are responsible to different actors.
 
 For example, suppose that the CTO’s team of DBAs decides that there should be a simple schema change to the Employee table of the database. Suppose also that the COO’s team of HR clerks decides that they need a change in the format of the hours report.
@@ -68,7 +68,7 @@ There are many other symptoms that we could investigate, but they all involve mu
 
 Once again, the way to avoid this problem is to separate code that supports different actors.
 
-SOLUTIONS
+## SOLUTIONS
 There are many different solutions to this problem. Each moves the functions into different classes.
 
 Perhaps the most obvious way to solve the problem is to separate the data from the functions. The three classes share access to EmployeeData, which is a simple data structure with no methods (Figure 7.3). Each class holds only the source code necessary for its particular function. The three classes are not allowed to know about each other. Thus any accidental duplication is avoided.
@@ -89,5 +89,5 @@ You might object to these solutions on the basis that every class would contain 
 
 Each of the classes that contain such a family of methods is a scope. Outside of that scope, no one knows that the private members of the family exist.
 
-CONCLUSION
+## CONCLUSION
 The Single Responsibility Principle is about functions and classes—but it reappears in a different form at two more levels. At the level of components, it becomes the Common Closure Principle. At the architectural level, it becomes the Axis of Change responsible for the creation of Architectural Boundaries. We’ll be studying all of these ideas in the chapters to come.

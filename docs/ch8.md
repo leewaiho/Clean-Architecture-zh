@@ -1,4 +1,4 @@
-# 第 8 章 OCP: THE OPEN-CLOSED PRINCIPLE
+# Chap8. OCP: THE OPEN-CLOSED PRINCIPLE
 
 ![](./un/CH-UN08.jpg)
 
@@ -14,7 +14,8 @@ Most students of software design recognize the OCP as a principle that guides th
 
 A thought experiment will make this clear.
 
-A THOUGHT EXPERIMENT
+## A THOUGHT EXPERIMENT
+
 Imagine, for a moment, that we have a system that displays a financial summary on a web page. The data on the page is scrollable, and negative numbers are rendered in red.
 
 Now imagine that the stakeholders ask that this same information be turned into a report to be printed on a black-and-white printer. The report should be properly paginated, with appropriate page headers, page footers, and column labels. Negative numbers should be surrounded by parentheses.
@@ -59,17 +60,20 @@ Notice how this creates a hierarchy of protection based on the notion of “leve
 
 This is how the OCP works at the architectural level. Architects separate functionality based on how, why, and when it changes, and then organize that separated functionality into a hierarchy of components. Higher-level components in that hierarchy are protected from the changes made to lower-level components.
 
-DIRECTIONAL CONTROL
+## DIRECTIONAL CONTROL
+
 If you recoiled in horror from the class design shown earlier, look again. Much of the complexity in that diagram was intended to make sure that the dependencies between the components pointed in the correct direction.
 
 For example, the FinancialDataGateway interface between the FinancialReportGenerator and the FinancialDataMapper exists to invert the dependency that would otherwise have pointed from the Interactor component to the Database component. The same is true of the FinancialReportPresenter interface, and the two View interfaces.
 
-INFORMATION HIDING
+## INFORMATION HIDING
+
 The FinancialReportRequester interface serves a different purpose. It is there to protect the FinancialReportController from knowing too much about the internals of the Interactor. If that interface were not there, then the Controller would have transitive dependencies on the FinancialEntities.
 
 Transitive dependencies are a violation of the general principle that software entities should not depend on things they don’t directly use. We’ll encounter that principle again when we talk about the Interface Segregation Principle and the Common Reuse Principle.
 
 So, even though our first priority is to protect the Interactor from changes to the Controller, we also want to protect the Controller from changes to the Interactor by hiding the internals of the Interactor.
 
-CONCLUSION
+## CONCLUSION
+
 The OCP is one of the driving forces behind the architecture of systems. The goal is to make the system easy to extend without incurring a high impact of change. This goal is accomplished by partitioning the system into components, and arranging those components into a dependency hierarchy that protects higher-level components from changes in lower-level components.
