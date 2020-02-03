@@ -116,7 +116,7 @@ module.exports = {
             "ch31.md",
             "ch32.md",
             "ch33.md",
-            // "ch34.md",
+            "ch34.md",
             "afterword.md"
           ]
         }
