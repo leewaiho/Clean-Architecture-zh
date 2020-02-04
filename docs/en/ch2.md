@@ -1,6 +1,6 @@
 # Chap2. A TALE OF TWO VALUES
 
-![](./un/CH-UN02.jpg)
+![](../un/CH-UN02.jpg)
 
 Every software system provides two different values to the stakeholders: behavior and structure. Software developers are responsible for ensuring that both those values remain high. Unfortunately, they often focus on one to the exclusion of the other. Even more unfortunately, they often focus on the lesser of the two values, leaving the software system eventually valueless.
 

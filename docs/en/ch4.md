@@ -1,6 +1,6 @@
 # Chap4. STRUCTURED PROGRAMMING
 
-![](./un/CH-UN04.jpg)
+![](../un/CH-UN04.jpg)
 
 Edsger Wybe Dijkstra was born in Rotterdam in 1930. He survived the bombing of Rotterdam during World War II, along with the German occupation of the Netherlands, and in 1948 graduated from high school with the highest possible marks in math, physics, chemistry, and biology. In March 1952, at the age of 21 (and just 9 months before I was born), Dijkstra took a job with the Mathematical Center of Amsterdam as the Netherlands’ very first programmer.
 

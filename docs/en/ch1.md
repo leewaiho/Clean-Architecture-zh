@@ -1,6 +1,6 @@
 # Chap1. WHAT IS DESIGN AND ARCHITECTURE?
 
-![](./un/CH-UN01.jpg)
+![](../un/CH-UN01.jpg)
 
 There has been a lot of confusion about design and architecture over the years. What is design? What is architecture? What are the differences between the two?
 

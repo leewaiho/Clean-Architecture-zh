@@ -1,6 +1,6 @@
 # Chap9. LSP: THE LISKOV SUBSTITUTION PRINCIPLE
 
-![](./un/CH-UN09.jpg)
+![](../un/CH-UN09.jpg)
 
 In 1988, Barbara Liskov wrote the following as a way of defining subtypes.
 

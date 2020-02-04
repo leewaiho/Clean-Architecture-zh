@@ -1,6 +1,6 @@
 # Chap8. OCP: THE OPEN-CLOSED PRINCIPLE
 
-![](./un/CH-UN08.jpg)
+![](../un/CH-UN08.jpg)
 
 The Open-Closed Principle (OCP) was coined in 1988 by Bertrand Meyer.1 It says:
 

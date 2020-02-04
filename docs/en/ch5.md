@@ -1,6 +1,6 @@
 # Chap5. OBJECT-ORIENTED PROGRAMMING
 
-![](./un/CH-UN05.jpg)
+![](../un/CH-UN05.jpg)
 
 As we will see, the basis of a good architecture is the understanding and application of the principles of object-oriented design (OO). But just what is OO?
 
