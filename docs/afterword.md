@@ -82,6 +82,8 @@ While the technology landscape for developers evolves continuously, foundational
 
 The real journey starts here.
 
+> 愿你们真正的编程设计之旅从这里开始！
+
 —Jason Gorman
 
 January 26, 2017

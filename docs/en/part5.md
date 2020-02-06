@@ -1,1 +1,0 @@
-# Part5. ARCHITECTURE

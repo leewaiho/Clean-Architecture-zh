@@ -1,10 +1,10 @@
-# Clean Architecture
+# Clean Architecture 中文
 
 <div style="margin: 0 auto; width: 40%;">
   <img src="./cover.jpg"/>
 </div>
 
-## Index
+## 目录
 
 - [第一部分 概述](part1.md)
 - [第 1 章 设计与架构究竟是什么](ch1.md)
