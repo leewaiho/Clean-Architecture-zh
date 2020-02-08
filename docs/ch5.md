@@ -305,7 +305,7 @@ In other words, getchar() simply calls the function pointed to by the read point
 
 This simple trick is the basis for all polymorphism in OO. In C++, for example, every virtual function within a class has a pointer in a table called a vtable, and all calls to virtual functions go through that table. Constructors of derivatives simply load their versions of those functions into the vtable of the object being created.
 
-> 这个简单的编程技巧正是面向对象编程中多态的基础。例如在 C++中，类中的每个虚函数（virtual function）的地址都被记录在一个名叫 vtable 的数据结构里。我们对虚函数的每次调用都要先查询这个表，其衍生类的构造函数负责将该衍生类的虚的数地址加载到整个对象的 vtable 中。
+> 这个简单的编程技巧正是面向对象编程中多态的基础。例如在 C++中，类中的每个虚函数（virtual function）的地址都被记录在一个名叫 vtable 的数据结构里。我们对虚函数的每次调用都要先查询这个表，其衍生类的构造函数负责将该衍生类的虚函数地址加载到整个对象的 vtable 中。
 
 The bottom line is that polymorphism is an application of pointers to functions. Programmers have been using pointers to functions to achieve polymorphic behavior since Von Neumann architectures were first implemented in the late 1940s. In other words, OO has provided nothing new.
 
@@ -317,7 +317,7 @@ Ah, but that’s not quite correct. OO languages may not have given us polymorph
 
 The problem with explicitly using pointers to functions to create polymorphic behavior is that pointers to functions are dangerous. Such use is driven by a set of manual conventions. You have to remember to follow the convention to initialize those pointers. You have to remember to follow the convention to call all your functions through those pointers. If any programmer fails to remember these conventions, the resulting bug can be devilishly hard to track down and eliminate.
 
-> 用函数抬针显式实现彩态的问题就在于函数指针的危险性。毕竟，函数指针的调用依赖于一系列需要人为遵守的约定。程序员必须严格按照固定约定来初始化函数指针，并同样严格地按照约定来调用这些指针。只要有一个程序员没有遵守这些约定，整个程序就会产生极其难以跟踪和消除的 Bug。
+> 用函数抬针显式实现多态的问题就在于函数指针的危险性。毕竟，函数指针的调用依赖于一系列需要人为遵守的约定。程序员必须严格按照固定约定来初始化函数指针，并同样严格地按照约定来调用这些指针。只要有一个程序员没有遵守这些约定，整个程序就会产生极其难以跟踪和消除的 Bug。
 
 OO languages eliminate these conventions and, therefore, these dangers. Using an OO language makes polymorphism trivial. That fact provides an enormous power that old C programmers could only dream of. On this basis, we can conclude that OO imposes discipline on indirect transfer of control.
 
@@ -347,9 +347,11 @@ For example, we often wrote programs that read input data from decks of cards,6 
 
 The plugin architecture was invented to support this kind of IO device independence, and has been implemented in almost every operating system since its introduction. Even so, most programmers did not extend the idea to their own programs, because using pointers to functions was dangerous.
 
-插件式架构就是为了支持这种 IO 不相关性而发明的，它几乎在随后的所有系统中都有应用。但即使多态有如此多优点，大部分程序员还是没有将插件特性引入他们自己的程序中，因为函数指针实在是太危险了。
+> 插件式架构就是为了支持这种 IO 不相关性而发明的，它几乎在随后的所有系统中都有应用。但即使多态有如此多优点，大部分程序员还是没有将插件特性引入他们自己的程序中，因为函数指针实在是太危险了。
 
 OO allows the plugin architecture to be used anywhere, for anything.
+
+> 而面向对象编程的出现使得这种插件式架构可以在任何地方被安全地使用。
 
 ### DEPENDENCY INVERSION 依赖反转
 
@@ -357,8 +359,7 @@ Imagine what software was like before a safe and convenient mechanism for polymo
 
 > 我们可以想象一下在安全和便利的多态支持出现之前，软件是什么样子的。下面有一个典型的调用树的例子，main 函数调用了一些高层函数，这些高层函数又调用了一些中层函数，这些中层函数又继续调用了一些底层函数。在这里，源代码面的依赖不可避免地要跟随程序的控制流（详见图 5.1）。
 
-Image
-Figure 5.1 Source code dependencies versus flow of control
+<Figures figure="5-1">Source code dependencies versus flow of control</Figures>
 
 For mainq1w2e3r4 to call one of the high-level functions, it had to mention the name of the module that contained that function In C, this was a #include. In Java, it was an import statement. In C#, it was a using statement. Indeed, every caller was forced to mention the name of the module that contained the callee.
 
@@ -372,8 +373,7 @@ When polymorphism is brought into play, however, something very different can ha
 
 > 但一旦我们使用了多态，情况就不一样了（详见图 5.2）。
 
-Image
-Figure 5.2 Dependency inversion
+<Figures figure="5-2">Dependency inversion</Figures>
 
 In Figure 5.2, module HL1 calls the F() function in module ML1. The fact that it calls this function through an interface is a source code contrivance. At runtime, the interface doesn’t exist. HL1 simply calls F() within ML1.7
 
@@ -403,8 +403,7 @@ What can you do with that power? As an example, you can rearrange the source cod
 
 > 这种能力有什么用呢？在下面的例子中，我们可以用它来让数据库模块和用户界面模块都依赖于业务逻辑模块（见图 5.3），而非相反。
 
-Image
-Figure 5.3 The database and the user interface depend on the business rules
+<Figures figure="5-3">The database and the user interface depend on the business rules</Figures>
 
 This means that the UI and the database can be plugins to the business rules. It means that the source code of the business rules never mentions the UI or the database.
 
