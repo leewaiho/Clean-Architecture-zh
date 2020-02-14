@@ -159,7 +159,7 @@ Architects would be wise to push as much processing as possible into the immutab
 
 The limits of storage and processing power have been rapidly receding from view. Nowadays it is common for processors to execute billions of instructions per second and to have billions of bytes of RAM. The more memory we have, and the faster our machines are, the less we need mutable state.
 
-> 随着存储和处理能力的大幅进步，现在拥有每秒可以执行数十亿条指令的处理器，字节内存的计算机已经很常见了。而内存越大，处理速度越快，我们对可变状态的依赖就会越少。
+> 随着存储和处理能力的大幅进步，现在拥有每秒可以执行数十亿条指令的处理器，以及数十亿字节内存的计算机已经很常见了。而内存越大，处理速度越快，我们对可变状态的依赖就会越少。
 
 As a simple example, imagine a banking application that maintains the account balances of its customers. It mutates those balances when deposit and withdrawal transactions are executed.
 
