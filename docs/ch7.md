@@ -8,7 +8,7 @@ Of all the SOLID principles, the Single Responsibility Principle (SRP) might be 
 
 Make no mistake, there is a principle like that. A function should do one, and only one, thing. We use that principle when we are refactoring large functions into smaller functions; we use it at the lowest levels. But it is not one of the SOLID principles—it is not the SRP.
 
-> 没错，后者的确也是一个设订原则，即确保一个函数只完成一个功能。我们在将大型函数亜构成小函数时经常会用到这个原则，但这只是一个面向底层实现细节的设计原则，并不是 SRP 的全部。
+> 没错，后者的确也是一个设定原则，即确保一个函数只完成一个功能。我们在将大型函数重构成小函数时经常会用到这个原则，但这只是一个面向底层实现细节的设计原则，并不是 SRP 的全部。
 
 Historically, the SRP has been described this way:
 
@@ -74,7 +74,7 @@ This class violates the SRP because those three methods are responsible to three
 
 By putting the source code for these three methods into a single Employee class, the developers have coupled each of these actors to the others. This coupling can cause the actions of the CFO’s team to affect something that the COO’s team depends on.
 
-> 这三个函数被放在同一个源代码文件，即同一个 Employee 类中，程序员这样 做实际上就等于使三类行为者的行为耦合在了一起，这有可能会导致 CFO 团队的命令影响到 C 00 团队所依赖的功能。
+> 这三个函数被放在同一个源代码文件，即同一个 Employee 类中，程序员这样 做实际上就等于使三类行为者的行为耦合在了一起，这有可能会导致 CFO 团队的命令影响到 COO 团队所依赖的功能。
 
 For example, suppose that the calculatePay() function and the reportHours() function share a common algorithm for calculating non-overtime hours. Suppose also that the developers, who are careful not to duplicate code, put that algorithm into a function named regularHours() (Figure 7.2).
 
