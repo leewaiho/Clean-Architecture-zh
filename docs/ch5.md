@@ -26,7 +26,7 @@ Let’s examine each of these concepts in turn.
 
 The reason encapsulation is cited as part of the definition of OO is that OO languages provide easy and effective encapsulation of data and function. As a result, a line can be drawn around a cohesive set of data and functions. Outside of that line, the data is hidden and only some of the functions are known. We see this concept in action as the private data members and the public member functions of a class.
 
-> 导致封装这个概念经常被引用为面向对象编程定义的一部分。通过釆用封装特性，我们可以把一组相关联的数据和函数圈起来，便圈外血的代码只能看见部分函数，数据则完全不可见。譬如在实际应用中，类（class）中的公共函数和私有成员变量就是这样。
+> 导致封装这个概念经常被引用为面向对象编程定义的一部分。通过釆用封装特性，我们可以把一组相关联的数据和函数圈起来，便圈外的代码只能看见部分函数，数据则完全不可见。譬如在实际应用中，类（class）中的公共函数和私有成员变量就是这样。
 
 This idea is certainly not unique to OO. Indeed, we had perfect encapsulation in C. Consider this simple C program:
 
@@ -79,7 +79,7 @@ But then came OO in the form of C++—and the perfect encapsulation of C was bro
 
 The C++ compiler, for technical reasons,1 needed the member variables of a class to be declared in the header file of that class. So our Point program changed to look like this:
 
-> 由于一些技术原，C++编译器要求类的成员变量必须在该类的头文件中声明。这样一来，我们的 point.h 程序随之就改成了这样：
+> 由于一些技术原因，C++编译器要求类的成员变量必须在该类的头文件中声明。这样一来，我们的 point.h 程序随之就改成了这样：
 
 point.h
 
@@ -126,7 +126,7 @@ Java and C# simply abolished the header/implementation split altogether, thereby
 
 For these reasons, it is difficult to accept that OO depends on strong encapsulation. Indeed, many OO languages2 have little or no enforced encapsulation.
 
-> 由于上述原因，我们很难说强封装是面向对象编程的必要条件。而事实上，有很多面向对象编程语言|对封装性并没有强制性的要求。
+> 由于上述原因，我们很难说强封装是面向对象编程的必要条件。而事实上，有很多面向对象编程语言对封装性并没有强制性的要求。
 
 OO certainly does depend on the idea that programmers are well-behaved enough to not circumvent encapsulated data. Even so, the languages that claim to provide OO have only weakened the once perfect encapsulation we enjoyed with C.
 
@@ -211,7 +211,7 @@ This kind of trickery was a common practice4 of programmers prior to the advent 
 
 Thus we might say that we had a kind of inheritance long before OO languages were invented. That statement wouldn’t quite be true, though. We had a trick, but it’s not nearly as convenient as true inheritance. Moreover, multiple inheritance is a considerably more difficult to achieve by such trickery.
 
-> 因此，我们可以说，早在面向对象编程语言被发明之前，对继承性的支持就已经存在很久了。当然了，这种支持用了一些投机取巧的手段，并不像如今的继昼：样便利易用，而且，多重继承（multiple inheritance）如果还想用这种方法来实现，就更难了。
+> 因此，我们可以说，早在面向对象编程语言被发明之前，对继承性的支持就已经存在很久了。当然了，这种支持用了一些投机取巧的手段，并不像如今的继承一样便利易用。而且，多重继承（multiple inheritance）如果还想用这种方法来实现，就更难了。
 
 Note also that in main.c, I was forced to cast the NamedPoint arguments to Point. In a real OO language, such upcasting would be implicit.
 
@@ -301,7 +301,7 @@ int getchar() {
 
 In other words, getchar() simply calls the function pointed to by the read pointer of the FILE data structure pointed to by STDIN.
 
-> 换句话说，`getchar()` 只是调用了 STDIN 所指向的 FIL E 数据结构体中的 read 函数指针指向的函数。
+> 换句话说，`getchar()` 只是调用了 STDIN 所指向的 FILE 数据结构体中的 read 函数指针指向的函数。
 
 This simple trick is the basis for all polymorphism in OO. In C++, for example, every virtual function within a class has a pointer in a table called a vtable, and all calls to virtual functions go through that table. Constructors of derivatives simply load their versions of those functions into the vtable of the object being created.
 
@@ -397,7 +397,7 @@ With this approach, software architects working in systems written in OO languag
 
 That is power! That is the power that OO provides. That’s what OO is really all about—at least from the architect’s point of view.
 
-> 这就是面向对象编程的好处，同时也是面向对象编程这种范式的核心本质至少对一个软件架构师来说是这样的。
+> 这就是面向对象编程的好处，同时也是面向对象编程这种范式的核心本质——至少对一个软件架构师来说是这样的。
 
 What can you do with that power? As an example, you can rearrange the source code dependencies of your system so that the database and the user interface (UI) depend on the business rules (Figure 5.3), rather than the other way around.
 
@@ -415,7 +415,7 @@ As a consequence, the business rules, the UI, and the database can be compiled i
 
 In turn, the business rules can be deployed independently of the UI and the database. Changes to the UI or the database need not have any effect on the business rules. Those components can be deployed separately and independently.
 
-> 于是，业务逻辑组件就可以独立于用户界面和数据库来进行部署了，我们对用户界面或者数据库的修改将不会对业务逻辑产生任何影响，这些组件都可以被分另独立地部署。
+> 于是，业务逻辑组件就可以独立于用户界面和数据库来进行部署了，我们对用户界面或者数据库的修改将不会对业务逻辑产生任何影响，这些组件都可以被分离独立地部署。
 
 In short, when the source code in a component changes, only that component needs to be redeployed. This is independent deployability.
 
@@ -429,4 +429,4 @@ If the modules in your system can be deployed independently, then they can be de
 
 What is OO? There are many opinions and many answers to this question. To the software architect, however, the answer is clear: OO is the ability, through the use of polymorphism, to gain absolute control over every source code dependency in the system. It allows the architect to create a plugin architecture, in which modules that contain high-level policies are independent of modules that contain low-level details. The low-level details are relegated to plugin modules that can be deployed and developed independently from the modules that contain high-level policies.
 
-> 面向对象编程到底是什么？业界在这个问题上存在着很多不同的说法和意见。然而对一个软件架构师来说，其含义应该是非常明确的：面向对象编程就是以对象为手段来对源代码中的依赖关系进行控制的能力，这种能力让软件架构师可以构建出某种插件式架构，让高层策略性组件与底层实现性组件相分离，底层组件可必编译成插件，实现独立于高层组件的开发和部署。
+> 面向对象编程到底是什么？业界在这个问题上存在着很多不同的说法和意见。然而对一个软件架构师来说，其含义应该是非常明确的：面向对象编程就是以对象为手段来对源代码中的依赖关系进行控制的能力，这种能力让软件架构师可以构建出某种插件式架构，让高层策略性组件与底层实现性组件相分离，底层组件可被编译成插件，实现独立于高层组件的开发和部署。
