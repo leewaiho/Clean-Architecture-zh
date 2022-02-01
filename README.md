@@ -73,12 +73,14 @@
 依赖于 `node.js`、`yarn`、`vuepress` 等环境
 
 ```sh
-# vuepress
-yarn global add vuepress
 
 # 本地开发
 git clone https://github.com/gdut-yy/Clean-Architecture-zh.git
 cd Clean-Architecture-zh/
+
+# 安装
+yarn
+
 yarn docs:dev
 
 # 本地阅读
