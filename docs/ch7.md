@@ -8,7 +8,7 @@ Of all the SOLID principles, the Single Responsibility Principle (SRP) might be 
 
 Make no mistake, there is a principle like that. A function should do one, and only one, thing. We use that principle when we are refactoring large functions into smaller functions; we use it at the lowest levels. But it is not one of the SOLID principles—it is not the SRP.
 
-> 没错，后者的确也是一个设订原则，即确保一个函数只完成一个功能。我们在将大型函数亜构成小函数时经常会用到这个原则，但这只是一个面向底层实现细节的设计原则，并不是 SRP 的全部。
+> 没错，后者的确也是一个设计原则，即确保一个函数只完成一个功能。我们在将大型函数重构成小函数时经常会用到这个原则，但这只是一个面向底层实现细节的设计原则，并不是 SRP 的全部。
 
 Historically, the SRP has been described this way:
 
