@@ -361,7 +361,7 @@ Imagine what software was like before a safe and convenient mechanism for polymo
 
 <Figures figure="5-1">Source code dependencies versus flow of control</Figures>
 
-For mainq1w2e3r4 to call one of the high-level functions, it had to mention the name of the module that contained that function In C, this was a #include. In Java, it was an import statement. In C#, it was a using statement. Indeed, every caller was forced to mention the name of the module that contained the callee.
+For main functions to call one of the high-level functions, it had to mention the name of the module that contained that function In C, this was a #include. In Java, it was an import statement. In C#, it was a using statement. Indeed, every caller was forced to mention the name of the module that contained the callee.
 
 > 如你所见，main 函数为了调用高层函数，它就必须能够看到这个函数所在模块。在 C 中，我们会通过 #include 来实现，在 Java 中则通过 import 来实现，而在 C# 中则用的是 using 语句。总之，每个函数的调用方都必须要引用被调用方所在的模块。
 
