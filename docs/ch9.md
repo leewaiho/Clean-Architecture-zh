@@ -145,4 +145,4 @@ And so our architect has had to add a significant and complex mechanism to deal 
 
 The LSP can, and should, be extended to the level of architecture. A simple violation of substitutability, can cause a system’s architecture to be polluted with a significant amount of extra mechanisms.
 
-> LSP 可以且应该被应用于软件架构层面，因为一旦违背了可替换也该系统架构就不得不为此增添大量复杂的应对机制。
+> LSP 可以且应该被应用于软件架构层面，因为一旦违背了可替换性，该系统架构就不得不为此增添大量复杂的应对机制。
