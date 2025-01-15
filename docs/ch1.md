@@ -186,11 +186,11 @@ And that’s the answer to the executive’s dilemma. The only way to reverse th
 
 The developers may think that the answer is to start over from scratch and redesign the whole system—but that’s just the Hare talking again. The same overconfidence that led to the mess is now telling them that they can build it better if only they can start the race over. The reality is less rosy:
 
-> 当然，某些软件研发工程师可能会认为挽救一个系统的唯一办法是抛弃现有系统，设计一个全新的系统来替代。但是这里仍然没有逃离过度自信。试问：如果是工程师的过度自信导致了目前的一团乱麻，开始，结果就会更好呢？
+> 当然，某些软件研发工程师可能会认为挽救一个系统的唯一办法是抛弃现有系统，设计一个全新的系统来替代。但是这里仍然没有逃离过度自信。试问：如果是工程师的过度自信导致了目前的一团乱麻，那么重新开始，结果凭什么就会更好呢？
 
 Their overconfidence will drive the redesign into the same mess as the original project.
 
-> 那么，我们有什么理由认为让他们从头第 1 章设计与架构究竟是什么过度自信只会使得重构设计陷入和原项目一样的困局中。
+> 那么，我们有理由认为：让他们从头重构设计，将陷入和原项目一样的困局之中。
 
 ## CONCLUSION 本章小结
 
